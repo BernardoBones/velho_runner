@@ -10,6 +10,7 @@ public class CollisionDetector : MonoBehaviour
     [SerializeField] AudioSource collisionFX;
     [SerializeField] GameObject mainCamera;
     [SerializeField] GameObject fadeOut;
+    [SerializeField] PostGameUI postGameUI;
     void OnTriggerEnter(Collider other)
     {
         StartCoroutine(CollisionEnd());
@@ -22,8 +23,15 @@ public class CollisionDetector : MonoBehaviour
         playerAnimation.GetComponent<Animator>().Play("Stumble Backwards");
         mainCamera.GetComponent<Animator>().Play("CollisionCamera");
         yield return new WaitForSeconds(3);
+          
         fadeOut.SetActive(true);
-        yield return new WaitForSeconds(3);
+
+        // Aqui mostramos a tela de pós-jogo antes de mudar de cena
+        postGameUI.ShowPostGame();
+
+        // Se você quiser pausar o jogo para o jogador ver a tela:
+        // Time.timeScale = 0f;
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene(0);
     }
 }
