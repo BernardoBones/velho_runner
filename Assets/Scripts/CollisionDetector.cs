@@ -26,10 +26,9 @@ public class CollisionDetector : MonoBehaviour
           
         fadeOut.SetActive(true);
 
-        // Aqui mostramos a tela de pós-jogo antes de mudar de cena
+        // tela de pós-jogo antes de mudar de cena
         postGameUI.ShowPostGame();
 
-        // Se você quiser pausar o jogo para o jogador ver a tela:
         // Time.timeScale = 0f;
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(0);

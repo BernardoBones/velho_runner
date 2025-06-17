@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float leftLimit = -5.5f;
     public static float timePlayed = 0f;
     public float speedIncreaseRate = 0.5f; // Quanto a velocidade aumenta por segundo
-    public float maxSpeed = 20f;           // Velocidade máxima permitida
+    public float maxSpeed = 40f;           // Velocidade máxima permitida
 
     // Update is called once per frame
     void Update()
